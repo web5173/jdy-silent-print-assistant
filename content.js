@@ -121,8 +121,8 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
     }
 });
 
-// 注入 injected.js
+// 注入本地 loader.js
 const s = document.createElement("script");
-s.src = chrome.runtime.getURL("injected.js");
+s.src = chrome.runtime.getURL("loader.js");
 s.onload = () => s.remove();
 document.head.appendChild(s);

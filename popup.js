@@ -4,10 +4,7 @@ const statusBox = document.getElementById("statusBox");
 const statusText = document.getElementById("statusText");
 const statusDesc = document.getElementById("statusDesc");
 const configLink = document.getElementById("configLink");
-// const versionText = document.getElementById("versionText");
-
 const manifest = chrome.runtime.getManifest?.();
-// if (manifest?.version) versionText.textContent = `v${manifest.version}`;
 
 chrome.storage.local.get([STORAGE_KEYS.apiEndpoint, STORAGE_KEYS.publicKey], (result) => {
     const hasEndpoint = !!result[STORAGE_KEYS.apiEndpoint];

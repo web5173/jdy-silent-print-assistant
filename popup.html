@@ -43,6 +43,18 @@
       color: var(--text-primary);
       white-space: nowrap;
     }
+    .header-link {
+      margin-left: auto;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 22px;
+      color: rgba(19, 29, 46, 0.8);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .header-link:hover {
+      text-decoration: underline;
+    }
     .status {
       display: flex;
       align-items: flex-start;
@@ -103,8 +115,9 @@
   <div class="header">
     <img class="logo" src="app.png" alt="">
     <div>
-      <div class="title">静默打印助手V2<span id="versionText"></span></div>
+      <div class="title">静默打印助手V2</div>
     </div>
+    <a class="header-link" href="https://webappprint.cn/silent-print-assistant/" target="_blank" rel="noreferrer">文档与支持</a>
   </div>
 
   <div class="status" id="statusBox">

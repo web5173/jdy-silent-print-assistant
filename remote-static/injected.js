@@ -1,3 +1,10 @@
+/*! 
+ * Copyright (c) 2026
+ * Project: 静默打印助手V2 — 适配简道云
+ * Author: web5173
+ * Licensed under the MIT License.
+ */
+
 const STORAGE_KEY_PREFIX = "zero_print_config_";
 const JIADAOYUN_PRIMARY_COLOR = "var(--fd-color-brand-6, #03ABA0)";
 
@@ -503,7 +510,7 @@ const isSystemTemplatePrint = (bodyObj) => {
     return false;
 };
 
-/** 阻止简道云打开 PDF 预览标签页（isHandlingPrint 期间拦截 window.open） */
+/** 阻止简道云打开打印预览标签页（isHandlingPrint 期间拦截 window.open） */
 const hookWindowOpen = () => {
     const originalWindowOpen = window.open;
     window.open = function (...args) {
@@ -540,7 +547,7 @@ const printPreviewObserver = new MutationObserver((mutations) => {
 });
 printPreviewObserver.observe(document.documentElement, { childList: true, subtree: true });
 
-/** 收到 PDF 下载地址后发送给 ZeroPrint */
+/** 收到可打印文件下载地址后发送给 ZeroPrint */
 const sendToZeroPrint = async (downloadUrl) => {
     const config = pageConfigCache;
     if (!config.target) {
