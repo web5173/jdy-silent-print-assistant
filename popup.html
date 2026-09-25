@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --jdy-primary: #03ABA0;
+      --jdy-primary-hover: #05948A;
+      --text-primary: #131D2E;
+      --text-secondary: rgba(19, 29, 46, 0.66);
+      --border: #E6E8ED;
+      --bg-soft: #F6F8FA;
+      --success-bg: #F6F8FA;
+      --warn-bg: #FFF7E6;
+      --warn: #EDA426;
+      --danger: #EF5655;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 300px;
+      padding: 18px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 13px;
+      color: var(--text-primary);
+      background: #fff;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 2px 2px 16px;
+    }
+    .logo {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+    .title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 22px;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+    .status {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      border: 1px solid transparent;
+    }
+    .status.ok {
+      background: var(--success-bg);
+      color: var(--text-primary);
+      border-color: var(--border);
+    }
+    .status.warn {
+      background: var(--warn-bg);
+      color: var(--warn);
+      border-color: #FFEEC7;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .status.ok .status-dot { background: var(--jdy-primary); }
+    .status.warn .status-dot { background: var(--warn); }
+    .status-title {
+      font-weight: 600;
+      line-height: 20px;
+    }
+    .status-desc {
+      margin-top: 1px;
+      font-size: 12px;
+      line-height: 18px;
+      color: var(--text-secondary);
+    }
+    .primary-action {
+      width: 100%;
+      height: 36px;
+      border: 1px solid var(--jdy-primary);
+      border-radius: 7px;
+      background: var(--jdy-primary);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.16s ease, border-color 0.16s ease;
+    }
+    .primary-action:hover {
+      background: var(--jdy-primary-hover);
+      border-color: var(--jdy-primary-hover);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img class="logo" src="app.png" alt="">
+    <div>
+      <div class="title">静默打印助手V2<span id="versionText"></span></div>
+    </div>
+  </div>
+
+  <div class="status" id="statusBox">
+    <span class="status-dot"></span>
+    <div>
+      <div class="status-title" id="statusText">检测中...</div>
+      <div class="status-desc" id="statusDesc">正在读取全局配置</div>
+    </div>
+  </div>
+
+  <button class="primary-action" id="configLink" type="button">打开全局配置</button>
+  <script src="popup.js"></script>
+</body>
+</html>

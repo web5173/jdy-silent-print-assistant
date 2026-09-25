@@ -1,0 +1,59 @@
+{
+    "manifest_version": 3,
+    "name": "静默打印助手V2",
+    "description": "在简道云页面中绕过原生打印预览，直接通过 ZeroPrint 服务发送打印任务，实现无预览、无人工干预的静默打印。",
+    "version": "2.0",
+    "permissions": [
+        "storage"
+    ],
+    "host_permissions": [
+        "https://www.jiandaoyun.com/*",
+        "https://dingtalk.jiandaoyun.com/*",
+        "https://lark.jiandaoyun.com/*",
+        "https://wxwork.jiandaoyun.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_icon": {
+            "16": "app.png",
+            "48": "app.png",
+            "128": "app.png"
+        },
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "16": "app.png",
+        "48": "app.png",
+        "128": "app.png"
+    },
+    "options_page": "options.html",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.jiandaoyun.com/*",
+                "https://dingtalk.jiandaoyun.com/*",
+                "https://lark.jiandaoyun.com/*",
+                "https://wxwork.jiandaoyun.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "injected.js"
+            ],
+            "matches": [
+                "https://www.jiandaoyun.com/*",
+                "https://dingtalk.jiandaoyun.com/*",
+                "https://lark.jiandaoyun.com/*",
+                "https://wxwork.jiandaoyun.com/*"
+            ]
+        }
+    ]
+}

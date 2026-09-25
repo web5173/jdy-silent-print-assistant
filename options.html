@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>ZeroPrint 全局配置</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      color: #333;
+      background: #f5f5f5;
+      padding: 40px 20px;
+      min-width: 480px;
+    }
+    .container {
+      max-width: 560px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 32px;
+    }
+    h1 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 28px;
+    }
+    .form-item {
+      margin-bottom: 20px;
+    }
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .form-label .required {
+      color: #f5222d;
+      margin-left: 2px;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 9px 12px;
+      font-size: 14px;
+      border: 1px solid #d9d9d9;
+      border-radius: 6px;
+      background: #fff;
+      color: #333;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+    }
+    input[type="text"]:focus, textarea:focus {
+      outline: none;
+      border-color: #00bfa5;
+      box-shadow: 0 0 0 3px rgba(0,191,165,0.1);
+    }
+    input::placeholder, textarea::placeholder {
+      color: #bfbfbf;
+    }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0f0;
+    }
+    button {
+      padding: 9px 20px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .btn-primary {
+      background: #00bfa5;
+      color: #fff;
+      border-color: #00bfa5;
+    }
+    .btn-primary:hover {
+      background: #00a693;
+      border-color: #00a693;
+    }
+    .btn-default {
+      background: #fff;
+      color: #666;
+      border-color: #d9d9d9;
+    }
+    .btn-default:hover {
+      color: #00bfa5;
+      border-color: #00bfa5;
+    }
+    .status-msg {
+      margin-top: 16px;
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      display: none;
+    }
+    .status-msg.success {
+      display: block;
+      background: #f6ffed;
+      color: #52c41a;
+      border: 1px solid #b7eb8f;
+    }
+    .status-msg.error {
+      display: block;
+      background: #fff2f0;
+      color: #f5222d;
+      border: 1px solid #ffccc7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><span>ZeroPrint</span> 全局配置</h1>
+    <div class="subtitle">全局配置对所有简道云表单生效，只需配置一次</div>
+
+    <div class="form-item">
+      <label class="form-label">接口地址<span class="required">*</span></label>
+      <input type="text" id="apiEndpoint" placeholder="从 ZeroPrint 客户端复制，示例：https://webappprint.cn" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off">
+    </div>
+
+    <div class="form-item">
+      <label class="form-label">公钥<span class="required">*</span></label>
+      <textarea id="publicKey" placeholder="从 ZeroPrint 客户端复制的公钥，用于端到端加密打印数据" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn-primary" id="saveBtn">保存配置</button>
+      <button class="btn-default" id="resetBtn">重置</button>
+    </div>
+
+    <div class="status-msg" id="statusMsg"></div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
